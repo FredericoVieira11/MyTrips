@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "119739875418",
+    "firebase_url": "https://my-trips-d4197.firebaseio.com",
+    "project_id": "my-trips-d4197",
+    "storage_bucket": "my-trips-d4197.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:119739875418:android:963eb0da3877032d229863",
+        "android_client_info": {
+          "package_name": "com.example.mytripsoriginal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "119739875418-hrmugm2u71qloetheb83raoudihpg1fg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlB5qxLMHg_Ad8_dlTNA5bzvzfQq2LeKA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "119739875418-hrmugm2u71qloetheb83raoudihpg1fg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
