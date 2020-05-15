@@ -20,6 +20,7 @@ class _GoogleMapsState extends State<GoogleMaps> {
       target: LatLng(41.235553, -8.626603),
       zoom: 18
   );
+
   Firestore _firestore = Firestore.instance;
 
   createMap(GoogleMapController googleMapController){
@@ -31,10 +32,8 @@ class _GoogleMapsState extends State<GoogleMaps> {
         .placemarkFromCoordinates(latLng.latitude, latLng.longitude);
 
     if(addressList != null && addressList.length > 0){
-
       Placemark address = addressList[0];
       //String street = address.thoroughfare;
-
       Marker marker = Marker(markerId: MarkerId("marcador-${latLng.latitude}-${latLng.longitude}"),
           position: latLng,
           infoWindow: InfoWindow(
@@ -44,20 +43,16 @@ class _GoogleMapsState extends State<GoogleMaps> {
 
       setState(() {
         _markers.add(marker);
-
         Map<String, dynamic> trip = Map();
         trip["title"] = address.thoroughfare;
         trip["latitude"] = latLng.latitude;
         trip["longitude"] = latLng.longitude;
-
         _firestore.collection("Trips").add(trip);
       });
-
     }
   }
 
   moveCamera() async{
-
     GoogleMapController googleMapController = await _controller.future;
     googleMapController.animateCamera(
         CameraUpdate.newCameraPosition(
@@ -67,7 +62,6 @@ class _GoogleMapsState extends State<GoogleMaps> {
   }
 
   addListenerLocation(){
-
     var geolocator = Geolocator();
     var localOptions = LocationOptions(accuracy: LocationAccuracy.high);
     geolocator.getPositionStream(localOptions).listen((Position position){
@@ -91,16 +85,13 @@ class _GoogleMapsState extends State<GoogleMaps> {
           data["latitude"],
           data["longitude"]
       );
-
       setState(() {
-
         Marker marker = Marker(markerId: MarkerId("marcador-${latLng.latitude}-${latLng.longitude}"),
             position: latLng,
             infoWindow: InfoWindow(
                 title: title
             )
         );
-
         _markers.add(marker);
         cameraPosition = CameraPosition(
           target: latLng,
@@ -116,9 +107,7 @@ class _GoogleMapsState extends State<GoogleMaps> {
   @override
   void initState() {
     super.initState();
-
     retrieveTripById(widget.tripId);
-
   }
 
   @override

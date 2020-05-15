@@ -1,9 +1,7 @@
 import 'dart:async';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'GoogleMaps.dart';
-
 
 class Home extends StatefulWidget {
   @override
@@ -11,6 +9,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
   final _controller = StreamController<QuerySnapshot>.broadcast();
   Firestore _firestore = Firestore.instance;
 
@@ -27,10 +26,8 @@ class _HomeState extends State<Home> {
   }
 
   addListenerTrips(){
-
     final stream = _firestore.collection("Trips")
         .snapshots();
-
 
     stream.listen((dados){
       _controller.add(dados);
@@ -40,7 +37,6 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
-
     addListenerTrips();
   }
 
@@ -110,7 +106,6 @@ class _HomeState extends State<Home> {
                   )
                 ],
               );
-
               break;
           }
         },
